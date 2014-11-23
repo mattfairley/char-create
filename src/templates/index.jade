@@ -10,21 +10,7 @@ html(ng-app="charCreate")
   body(ng-controller="CharController as character")
     .wrapper
       h1 D&D Character Creator
-      ul.nav.nav-tabs
-        li(role="presentation").active
-          a Name
-        li(role="presentation")
-          a Race
-        li(role="presentation")
-          a Class
-        li(role="presentation")
-          a Attributes
-        li(role="presentation")
-          a Skills
-        li(role="presentation")
-          a Spells
-        li(role="presentation")
-          a Weapons & Equipment
-        li(role="presentation")
-          a Character Sheet
-      
+      stat-tabs
+      footer
+        p &copy; 2014 
+          a(href="http://mattfairley.com" target="_blank") Matt Fairley

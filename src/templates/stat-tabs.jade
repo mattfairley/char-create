@@ -1,0 +1,27 @@
+section#nav
+  ul.nav.nav-tabs
+    li(role="presentation" ng-class="{ active:tab.isSet(1) }")
+      a(ng-click="tab.setTab(1)") Name
+    li(role="presentation" ng-class="{ active:tab.isSet(2) }")
+      a(ng-click="tab.setTab(2)") Race
+    li(role="presentation" ng-class="{ active:tab.isSet(3) }")
+      a(ng-click="tab.setTab(3)") Class
+    li(role="presentation" ng-class="{ active:tab.isSet(4) }")
+      a(ng-click="tab.setTab(4)") Attributes
+    li(role="presentation" ng-class="{ active:tab.isSet(5) }")
+      a(ng-click="tab.setTab(5)") Skills
+    li(role="presentation" ng-class="{ active:tab.isSet(6) }")
+      a(ng-click="tab.setTab(6)") Spells
+    li(role="presentation" ng-class="{ active:tab.isSet(7) }")
+      a(ng-click="tab.setTab(7)") Weapons & Equipment
+    li(role="presentation" ng-class="{ active:tab.isSet(8) }")
+      a(ng-click="tab.setTab(8)") Character Sheet
+
+stat-name(ng-show="tab.isSet(1)")
+stat-race(ng-show="tab.isSet(2)")
+stat-class(ng-show="tab.isSet(3)")
+stat-attributes(ng-show="tab.isSet(4)")
+stat-skills(ng-show="tab.isSet(5)")
+stat-spells(ng-show="tab.isSet(6)")
+stat-weapons(ng-show="tab.isSet(7)")
+stat-sheet(ng-show="tab.isSet(8)")
