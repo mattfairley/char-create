@@ -1,0 +1,30 @@
+doctype html
+html(ng-app="charCreate")
+  head
+    title= "character creator"
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet", href="css/style.min.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")
+    script(src="js/scripts.min.js")
+  body(ng-controller="CharController as character")
+    .wrapper
+      h1 D&D Character Creator
+      ul.nav.nav-tabs
+        li(role="presentation").active
+          a Name
+        li(role="presentation")
+          a Race
+        li(role="presentation")
+          a Class
+        li(role="presentation")
+          a Attributes
+        li(role="presentation")
+          a Skills
+        li(role="presentation")
+          a Spells
+        li(role="presentation")
+          a Weapons & Equipment
+        li(role="presentation")
+          a Character Sheet
+      
