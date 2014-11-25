@@ -8,6 +8,7 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	rename = require('gulp-rename'),
 	concat = require('gulp-concat'),
+  jsonminify = require('gulp-jsonminify'),
 	plumber = require('gulp-plumber'),
 	notify = require('gulp-notify'),
 	cache = require('gulp-cache'),
@@ -41,6 +42,12 @@ gulp.task('lint', function(){
     .pipe(jshint.reporter('default'))
 });
 
+gulp.task('json', function () {
+    return gulp.src(['src/js/**/*.json'])
+        .pipe(jsonminify())
+        .pipe(gulp.dest('dist/assets/js'));
+});
+
 gulp.task('scripts', function() {
 	return gulp.src('src/js/**/*.js')
 		.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
@@ -61,7 +68,7 @@ gulp.task('images', function() {
 });
 
 gulp.task('clean', function(cb) {
-	del(['dist/assets/css', 'dist/assets/js', 'dist/assets/img'], cb)
+	del(['dist/assets/css', 'dist/assets/js/*.js', 'dist/assets/img'], cb)
 });
 
 gulp.task('default', ['clean'], function() {
@@ -77,7 +84,7 @@ gulp.task('watch', function() {
 	gulp.watch('src/css/**/*.scss', ['styles']);
 
 	// Watch .js files
-	gulp.watch('src/js/**/*', ['lint', 'scripts']);
+	gulp.watch('src/js/**/*', ['lint', 'json', 'scripts']);
 
 	// Watch image files
 	gulp.watch('src/img/**/*', ['images']);

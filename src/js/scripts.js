@@ -1,11 +1,14 @@
 (function() {
   var app = angular.module('charCreate', []);
 
-  app.controller('CharController', function(){
+  app.controller('CharController', ['$http',function($http){
     var character = this;
     character.stats = [];
-    
-  });
+    $http.get('./js/stats.json').success(function(data){
+      character.stats = data;
+      console.log('data');
+    });
+  }]);
 
   app.directive('statTabs', function() {
     return {
